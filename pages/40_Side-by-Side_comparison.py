@@ -407,14 +407,14 @@ def get_summary_table(_prov_gdf,
                                      d_prov,
                                      prov_gdf,
                                      pair)
-        df_results = df_results.append(df_to_add)
+        df_results = pd.concat([df_results, df_to_add])
     for site in new_provider_list :
         df_to_add = test_sites_quick(df_actuals_augmented,
                                      df_activity,
                                      d_prov,
                                      prov_gdf,
                                      [site])
-        df_results = df_results.append(df_to_add)
+        df_results = pd.concat([df_results, df_to_add])
     if save_output :
         if not os.path.exists(os.getcwd()+'/output'):
             os.makedirs(os.getcwd()+'/output')
